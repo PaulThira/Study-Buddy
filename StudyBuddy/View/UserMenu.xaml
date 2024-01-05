@@ -1,0 +1,54 @@
+﻿<Window x:Class="StudyBuddy.View.UserMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudyBuddy.View"
+        mc:Ignorable="d"
+        Title="UserMenu" Height="450" Width="800">
+    <Grid Background="#FFD19EED">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="160*"/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Center" Margin="0,44,0,0" TextWrapping="Wrap" Text="Welcome Back!!" VerticalAlignment="Top" Height="121" Width="356" FontFamily="Lucida Handwriting" FontSize="48" TextAlignment="Center" Foreground="#FFFADA00" Grid.RowSpan="2"/>
+        <Button Content="Feed" HorizontalAlignment="Left" Margin="145,92,0,0" VerticalAlignment="Top" Height="80" Width="165" Foreground="#FF52450C" FontSize="36" FontFamily="Lucida Handwriting" Grid.Row="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFE6E765" Offset="1"/>
+                    <GradientStop Color="#FFA961D0" Offset="0.025"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Library" HorizontalAlignment="Left" Margin="510,92,0,0" VerticalAlignment="Top" Height="80" Width="165" Foreground="#FF52450C" FontSize="36" FontFamily="Lucida Handwriting" Grid.Row="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFE6E765" Offset="1"/>
+                    <GradientStop Color="#FFA961D0" Offset="0.025"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" Margin="29,209,0,0" TextWrapping="Wrap" Text="Have Fun!!" VerticalAlignment="Top" Height="46" Width="267" FontFamily="Lucida Handwriting" FontSize="36" TextAlignment="Center" Foreground="#FFFADA00" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.378"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="427,214,0,0" TextWrapping="Wrap" Text="Enjoy Learning" VerticalAlignment="Top" Height="55" Width="321" FontFamily="Lucida Handwriting" FontSize="36" TextAlignment="Center" Foreground="#FFFADA00" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-1.071"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+    </Grid>
+</Window>

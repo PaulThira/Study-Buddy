@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudyBuddy"
+        xmlns:viewmodel="clr-namespace:StudyBuddy.VM" xmlns:viewmodel1="clr-namespace:StudyBuddy.VM"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Window.DataContext>
+        <viewmodel:MainWindowVM/>
+    </Window.DataContext>
+    <Grid Background="#FFF5EEBF">
         <Grid HorizontalAlignment="Left" Height="240" VerticalAlignment="Center" Width="556" Margin="140,0,0,0">
             <Button Content="Admin" HorizontalAlignment="Left" Margin="391,160,0,0" VerticalAlignment="Top" Height="80" Width="165" Foreground="#FF52450C" FontSize="36" FontFamily="Lucida Handwriting">
                 <Button.Background>
@@ -19,7 +23,7 @@
             </Button>
         </Grid>
         <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="Study Budyy" VerticalAlignment="Top" Height="136" Width="330" TextAlignment="Center" FontSize="48" FontFamily="Lucida Handwriting" Foreground="#FF6D00F6"/>
-        <Button Content="User" HorizontalAlignment="Left" Margin="140,257,0,0" VerticalAlignment="Top" Height="80" Width="165" Foreground="#FF52450C" FontSize="36" FontFamily="Lucida Handwriting">
+        <Button Content="User" HorizontalAlignment="Left" Margin="140,257,0,0" VerticalAlignment="Top" Height="80" Width="165" Foreground="#FF52450C" FontSize="36" FontFamily="Lucida Handwriting" Command="{Binding New}">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>

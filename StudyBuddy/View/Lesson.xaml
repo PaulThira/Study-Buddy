@@ -1,0 +1,19 @@
+﻿<Window x:Class="StudyBuddy.View.Lesson"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudyBuddy.View"
+        mc:Ignorable="d"
+        Title="Lesson" Height="450" Width="800">
+    <Grid Background="#FFEAE8D0">
+        <TextBlock HorizontalAlignment="Left" Height="74" TextWrapping="Wrap" VerticalAlignment="Top" Width="375" TextAlignment="Center" FontSize="30" FontFamily="Lucida Handwriting" Foreground="#FF7664DE" Margin="200,0,0,0"><Run Text="Welcome to your "/><LineBreak/><Run Text="lesson"/></TextBlock>
+        <Button Content="Save" HorizontalAlignment="Center" Margin="0,374,0,0" VerticalAlignment="Top" Height="50" Width="100" Background="#FF5B34BE" Foreground="#FFD5B932" FontFamily="Lucida Handwriting" FontSize="30"/>
+        <TextBox HorizontalAlignment="Left" Height="219" Margin="52,129,0,0" TextWrapping="Wrap" Text="Content" VerticalAlignment="Top" Width="670" Background="#FFDFC6EE" Foreground="#FF847425" FontFamily="Lucida Handwriting" FontSize="18"/>
+        <TextBox HorizontalAlignment="Left" Height="21" Margin="274,88,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" Width="226" Background="#FFDFC6EE" Foreground="#FF847425" FontFamily="Lucida Handwriting" FontSize="18"/>
+
+
+
+
+    </Grid>
+</Window>

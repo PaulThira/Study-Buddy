@@ -4,15 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudyBuddy.View"
+        xmlns:viewmodel="clr-namespace:StudyBuddy.VM" xmlns:viewmodel1="clr-namespace:StudyBuddy.VM"
         mc:Ignorable="d"
         Title="UserLoginSignupxaml" Height="450" Width="800">
+    <Window.DataContext>
+        <viewmodel:LogInSignUpUserVM/>
+    </Window.DataContext>
     <Grid Background="#FFDA9FEF">
-        <TextBox HorizontalAlignment="Center" Margin="0,99,0,0" TextWrapping="Wrap" Text="name" VerticalAlignment="Top" Width="400" Height="50" TextChanged="TextBox_TextChanged" Background="#FFDA9FEF" TextAlignment="Center" FontSize="30" FontFamily="Lucida Handwriting" Foreground="#FF5A0B80"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,239,0,0" TextWrapping="Wrap" Text="password" VerticalAlignment="Top" Width="400" Height="50" TextChanged="TextBox_TextChanged" Background="#FFDA9FEF" TextAlignment="Center" FontSize="30" FontFamily="Lucida Handwriting" Foreground="#FF5A0B80"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,99,0,0" TextWrapping="Wrap" Text="{Binding name}" VerticalAlignment="Top" Width="240" Height="50"  Background="#FFDA9FEF" TextAlignment="Center" FontSize="30" FontFamily="Lucida Handwriting" Foreground="#FF5A0B80"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,239,0,0" TextWrapping="Wrap" Text="{Binding password}" VerticalAlignment="Top" Width="240" Height="50"  Background="#FFDA9FEF" TextAlignment="Center" FontSize="30" FontFamily="Lucida Handwriting" Foreground="#FF5A0B80"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,34,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="45" Width="240" FontFamily="Lucida Handwriting" TextAlignment="Center" Foreground="#FF5A0B80" FontSize="40"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,162,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Height="45" Width="240" FontFamily="Lucida Handwriting" TextAlignment="Center" Foreground="#FF5A0B80" FontSize="40"/>
-        <Button Content="SignUp" HorizontalAlignment="Left" Margin="160,319,0,0" VerticalAlignment="Top" Height="60" Width="135" Background="#FFE1BA31" Foreground="#FF590A8D" FontSize="30" FontFamily="Lucida Handwriting"/>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="505,319,0,0" VerticalAlignment="Top" Height="60" Width="135" Background="#FFE1BA31" Foreground="#FF590A8D" FontSize="30" FontFamily="Lucida Handwriting"/>
+        <Button Content="SignUp" HorizontalAlignment="Left" Margin="160,319,0,0" VerticalAlignment="Top" Height="60" Width="135" Background="#FFE1BA31" Foreground="#FF590A8D" FontSize="30" FontFamily="Lucida Handwriting" Command="{Binding SignUp}"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="505,319,0,0" VerticalAlignment="Top" Height="60" Width="135" Background="#FFE1BA31" Foreground="#FF590A8D" FontSize="30" FontFamily="Lucida Handwriting" Command="{Binding LogIn}"/>
         <Image Height="100" Width="100"/>
         <Grid HorizontalAlignment="Left" Height="227" Margin="70,49,0,0" VerticalAlignment="Top" Width="185" Background="#FFCAAA62"/>
         <Grid HorizontalAlignment="Left" Height="227" Margin="572,49,0,0" VerticalAlignment="Top" Width="186" Background="#FFCAAA62"/>
