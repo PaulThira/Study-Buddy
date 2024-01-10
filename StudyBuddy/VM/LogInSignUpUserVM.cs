@@ -18,6 +18,7 @@ namespace StudyBuddy.VM
         
         public string name {  get; set; }
         public string password { get; set; }
+
         public LogInSignUpUserVM() {
             name = "initial";
             password = "broke";
@@ -76,9 +77,10 @@ namespace StudyBuddy.VM
             {
                 PBlank.name = name;
                 PBlank.password = password;
-                _person.Notify(PBlank);
-                Library L = new Library();
-                L.ShowDialog();
+                _person.Attach(PBlank);
+                UserMenu U=new UserMenu(PBlank.Id);
+                U.ShowDialog();
+                
 
 
 
@@ -88,7 +90,7 @@ namespace StudyBuddy.VM
             else
             {
                 PBlank.AddStrike(name);
-                _person.Notify(PBlank);
+                _person.Notify("strikes",PBlank.strikes+1);
             }
         }
             private bool LogInToEvaluate(object context)

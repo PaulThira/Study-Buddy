@@ -1,0 +1,14 @@
+﻿<Window x:Class="StudyBuddy.View.ViewReports"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudyBuddy.View"
+        mc:Ignorable="d"
+        Title="ViewReports" Height="450" Width="800">
+    <Grid Background="#FFB19FFC">
+        <DataGrid HorizontalAlignment="Center" Height="297" VerticalAlignment="Top" Width="660" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,72,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="265,12,0,0" TextWrapping="Wrap" Text="Reports" VerticalAlignment="Top" Height="45" Width="240" FontFamily="Lucida Handwriting" TextAlignment="Center" Foreground="#FF5A0B80" FontSize="40"/>
+
+    </Grid>
+</Window>

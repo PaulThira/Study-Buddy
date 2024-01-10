@@ -19,9 +19,11 @@ namespace StudyBuddy.View
     /// </summary>
     public partial class Feed : Window
     {
-        public Feed()
+        public int UserID { get; set; }
+        public Feed(int userID)
         {
             InitializeComponent();
+            UserID = userID;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudyBuddy.VM;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,12 @@ namespace StudyBuddy.View
     /// </summary>
     public partial class Library : Window
     {
-        public Library()
+        public int IDUser {   get; set; }
+        public Library(int iDUser)
         {
             InitializeComponent();
+            IDUser = iDUser;
+            LibraryVM.IDUser = IDUser;
         }
     }
 }

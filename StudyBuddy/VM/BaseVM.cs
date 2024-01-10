@@ -19,6 +19,9 @@ namespace StudyBuddy.VM
         public event PropertyChangedEventHandler PropertyChanged;
         private ObjectManager<BaseVM> central=new ObjectManager<BaseVM>();
         protected ObjectManager<Person> _person=new ObjectManager<Person>();
+        protected ObjectManager<Unit> _units=new ObjectManager<Unit>();
+        protected ObjectManager<Lesson> _lessons=new ObjectManager<Lesson>();
+        protected ObjectManager<Test> _tests=new ObjectManager<Test>();
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

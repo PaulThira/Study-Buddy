@@ -9,24 +9,32 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 using System.Xml.Linq;
+using StudyBuddy.View;
 
 namespace StudyBuddy.VM
 {
     public class LibraryVM:BaseVM
     {
-        public ObservableCollectionListSource<String> _tests { get; set; }
-        ObservableCollectionListSource<String> _lessons {  get; set; }
+        public ObservableCollectionListSource<String> tests { get; set; }
+        public ObservableCollectionListSource<String> lessons {  get; set; }
+        public static  int IDUser{get; set; }
+        public Unit unit { get; set; }
         public LibraryVM() { 
         
-            _lessons = new ObservableCollectionListSource<String>();
+            lessons = new ObservableCollectionListSource<String>();
 
-            _tests=new ObservableCollectionListSource<String>();
+            tests=new ObservableCollectionListSource<String>();
             for (int i = 0; i < 3; i++)
             {
-                _lessons.Add("blessings" + i.ToString());
-                _tests.Add("test"+i.ToString());
+                lessons.Add("blessings" + i.ToString());
+                tests.Add("test "+i.ToString());
             }
+            unit = new Unit(IDUser);
+            
+            unit.CreateNew();
+            _units.Attach(unit);
         }
+        public bool picked;
         public string name {  get; set; }
         public ICommand Add
         {
@@ -38,7 +46,20 @@ namespace StudyBuddy.VM
         private void AddCall(object context)
         {
            
-
+            if (picked==false)
+            {
+                tests.Add(name);
+                Model.Test t = new Model.Test(unit.Id);
+                t.CreateNew();
+                _tests.Attach(t);
+            }
+            else
+            {
+                lessons.Add(name);
+                Model.Lesson l = new Model.Lesson(unit.Id);
+                l.CreateNew();
+                _lessons.Attach(l);
+            }
 
         }
         private bool AddToEvaluate(object context)
@@ -51,13 +72,14 @@ namespace StudyBuddy.VM
         {
             get
             {
-                return new DelegateCommand<object>(AddCall, AddToEvaluate);
+                return new DelegateCommand<object>(LessonPickedCall, LessonPickedToEvaluate);
             }
         }
         private void LessonPickedCall(object context)
         {
 
-
+            picked = true;
+            MessageBox.Show("Lesson selected");
 
         }
         private bool LessonPickedToEvaluate(object context)
@@ -66,6 +88,56 @@ namespace StudyBuddy.VM
             //for example you can return true or false based on some validation logic
             return true;
         }
+        public ICommand TestPicked
+        {
+            get
+            {
+                return new DelegateCommand<object>(TestPickedCall, TestPickedToEvaluate);
+            }
+        }
+        private void TestPickedCall(object context)
+        {
+
+            picked = false;
+            MessageBox.Show("Test selected");
+
+        }
+        private bool TestPickedToEvaluate(object context)
+        {
+            //this is called to evaluate whether FuncToCall can be called
+            //for example you can return true or false based on some validation logic
+            return true;
+        }
+        public ICommand PickPicked
+        {
+            get
+            {
+                return new DelegateCommand<object>(PickPickedCall, PickPickedToEvaluate);
+            }
+        }
+        private void PickPickedCall(object context)
+        {
+
+            if(picked==false)
+            {
+                View.Test test = new View.Test();
+                test.ShowDialog();
+            }
+            else
+            {
+                View.Lesson lesson = new View.Lesson();
+                lesson.ShowDialog();
+            }
+            
+
+        }
+        private bool PickPickedToEvaluate(object context)
+        {
+            //this is called to evaluate whether FuncToCall can be called
+            //for example you can return true or false based on some validation logic
+            return true;
+        }
+
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,14 +10,12 @@ namespace StudyBuddy.Model
     public class ObjectManager<T>
     {
         private List<Observer<T>> observers = new List<Observer<T>>();
-        private Dictionary<int, T> objectsById;
-        private Dictionary<string, T> objectsByName;
+        
 
         // Constructor
         public ObjectManager()
         {
-            objectsById = new Dictionary<int, T>();
-            objectsByName = new Dictionary<string, T>();
+         
         }
 
         // Implement Observer pattern methods
@@ -31,11 +30,12 @@ namespace StudyBuddy.Model
         }
 
         // Notify observers about the change
-        public void Notify(T observer1)
+        public void Notify(string name, object value)
         {
             foreach (var observer in observers)
             {
-                observer.Update(observer1);
+              
+                observer.Update(name,value);
             }
         }
 

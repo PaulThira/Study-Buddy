@@ -19,9 +19,11 @@ namespace StudyBuddy.View
     /// </summary>
     public partial class UserMenu : Window
     {
-        public UserMenu()
+        public int IDUser {  get; set; }
+        public UserMenu(int iDUser)
         {
             InitializeComponent();
+            IDUser = iDUser;
         }
     }
 }

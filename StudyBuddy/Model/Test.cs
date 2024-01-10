@@ -1,36 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection.Metadata;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Xml.Linq;
 
 namespace StudyBuddy.Model
 {
-    public class Unit : Observer<Unit>
+    public class Test : Observer<Test>
     {
-        public int Id {  get; set; }
-        public string name { get; set; }
-        public int IDUser { get; set; }
+        public int ID {  get; set; }
+        public int score {  get; set; }
+        public int IDUnit {  get; set; }
         public static int count;
-        public Observer<Unit> observer;
-        public Unit() {
-            SetCount();
-            count++;
-            Id = count;
-            name = "main";
-            IDUser = 1;
-        }
-        public Unit(int id)
+        public Test()
         {
             SetCount();
+            
             count++;
-            Id = count;
-            name = "main";
-            IDUser = id;
-
+            ID=count;
+            IDUnit = 1;
+            score = 0;
+        }
+        public Test(int IdUnit)
+        {
+            SetCount();
+            
+            count++;
+            ID = count;
+            IDUnit = IdUnit;
+            score = 0;
         }
         public void SetCount()
         {
@@ -43,7 +47,7 @@ namespace StudyBuddy.Model
                     connection.Open();
 
                     // Perform insert operation using SqlCommand
-                    using (SqlCommand countCommand = new SqlCommand("SELECT COUNT(*) FROM Unit", connection))
+                    using (SqlCommand countCommand = new SqlCommand("SELECT COUNT(*) FROM Test", connection))
                     {
                         int numberOfEntries = (int)countCommand.ExecuteScalar();
 
@@ -73,13 +77,13 @@ namespace StudyBuddy.Model
 
                     // Perform insert operation using SqlCommand
                     using (SqlCommand insertCommand = new SqlCommand(
-                        "INSERT INTO Unit (ID,Name,IDUser) VALUES (@C1, @C2,@C3)", connection))
+                        "INSERT INTO Test (ID,score,IDUnit) VALUES (@C1, @C2,@C3)", connection))
                     {
                         // Use parameters to prevent SQL injection
-                        insertCommand.Parameters.AddWithValue("@C1", Id);
-                        insertCommand.Parameters.AddWithValue("@C2", name);
-                        insertCommand.Parameters.AddWithValue("@C3", IDUser);
-                       
+                        insertCommand.Parameters.AddWithValue("@C1", ID);
+                        insertCommand.Parameters.AddWithValue("@C2", score);
+                        insertCommand.Parameters.AddWithValue("@C3", IDUnit);
+
 
                         int rowsAffected = insertCommand.ExecuteNonQuery();
 
@@ -98,13 +102,13 @@ namespace StudyBuddy.Model
 
         public override void CreateObjectFromReader(SqlDataReader reader)
         {
-            Id = (int)reader["ID"];
-            name = (string)reader["Name"];
-            IDUser = (int)reader["IDUser"];
+            ID = (int)reader["ID"];
+            score = (int)reader["score"];
+            IDUnit = (int)reader["IDUnit"];
 
         }
 
-        public override bool GetById(int objectIdUser)
+        public override bool GetById(int objectId)
         {
             string connectionString = "Data Source=THIRASWORLD;Initial Catalog=Study Buddy;Integrated Security=True";
 
@@ -116,10 +120,10 @@ namespace StudyBuddy.Model
 
                     // Perform insert operation using SqlCommand
                     using (SqlCommand command = new SqlCommand(
-                        "Select* from Unit where IDUser=@C1", connection))
+                        "Select* from Test where ID=@C1", connection))
                     {
                         // Use parameters to prevent SQL injection
-                        command.Parameters.AddWithValue("@C1", objectIdUser);
+                        command.Parameters.AddWithValue("@C1", objectId);
 
 
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -147,63 +151,26 @@ namespace StudyBuddy.Model
             }
         }
 
-        public  override bool GetByName(string objectName)
+        public override bool GetByName(string objectName)
         {
-            string connectionString = "Data Source=THIRASWORLD;Initial Catalog=Study Buddy;Integrated Security=True";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-
-                    // Perform insert operation using SqlCommand
-                    using (SqlCommand command = new SqlCommand(
-                        "Select * from Unit where Name=@C1", connection))
-                    {
-                        // Use parameters to prevent SQL injection
-                        command.Parameters.AddWithValue("@C1", objectName);
-
-
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-
-
-                            return reader.Read();
-
-                        }
-
-
-                    }
-
-                    // Perform select operation to verify the insertion
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Fail");
-                    return false;
-                }
-
-            }
+            return false;
         }
 
         public override void Update(string propertyName, object newValue)
         {
             if (propertyName == "ID")
             {
-                Id = (int)newValue;
+                ID = (int)newValue;
             }
 
-            if (propertyName == "name")
+            if (propertyName == "IDUnit")
             {
-                name = (string)newValue;
+                IDUnit = (int)newValue;
             }
-            if (propertyName == "IDUser")
+            if (propertyName == "score")
             {
-                IDUser = (int)newValue;
+                score = (int)newValue;
             }
-            
         }
     }
 }

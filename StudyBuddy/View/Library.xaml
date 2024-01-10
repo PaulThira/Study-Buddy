@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudyBuddy.View"
-        xmlns:viewmodel="clr-namespace:StudyBuddy.VM" xmlns:viewmodel1="clr-namespace:StudyBuddy.VM"
+        xmlns:viewmodel="clr-namespace:StudyBuddy.VM" 
         mc:Ignorable="d"
         Title="Library" Height="450" Width="800">
     <Window.DataContext>
@@ -12,17 +12,17 @@
     </Window.DataContext>
     <Grid Background="#FFEAD0DF">
         <TextBlock HorizontalAlignment="Left" Height="110" TextWrapping="Wrap" VerticalAlignment="Top" Width="385" TextAlignment="Center" FontSize="40" FontFamily="Lucida Handwriting" Foreground="#FF78C4A3" Margin="0,24,0,0"><Run Text="Welcome to your "/><LineBreak/><Run Text="library"/></TextBlock>
-        <ComboBox HorizontalAlignment="Left" Margin="400,104,0,0" VerticalAlignment="Top" Width="340" Height="31"/>
-        <Button Content="Pick" HorizontalAlignment="Left" Margin="473,311,0,0" VerticalAlignment="Top" Height="66" Width="173" Background="#FFD784A6" Foreground="#FF4D9129" FontFamily="Lucida Handwriting" FontSize="30"/>
-        <TextBlock HorizontalAlignment="Left" Height="49" Margin="400,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" TextAlignment="Center" FontSize="40" FontFamily="Lucida Handwriting" Foreground="#FF9CD626"><Run Text="Tests "/><LineBreak/><Run Text="library"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="49" Margin="394,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" TextAlignment="Center" FontSize="40" FontFamily="Lucida Handwriting" Foreground="#FF9CD626"><Run Text="Lessons"/><LineBreak/><Run/></TextBlock>
-        <ComboBox HorizontalAlignment="Left" Margin="400,225,0,0" VerticalAlignment="Top" Width="340" Height="31" BorderBrush="#FF884DD8">
+        <ComboBox HorizontalAlignment="Left" Margin="400,104,0,0" VerticalAlignment="Top" Width="340" Height="31" ItemsSource="{Binding tests}"/>
+        <Button Content="Pick" HorizontalAlignment="Left" Margin="473,311,0,0" VerticalAlignment="Top" Height="66" Width="173" Background="#FFD784A6" Foreground="#FF4D9129" FontFamily="Lucida Handwriting" FontSize="30" Command="{Binding PickPicked}"/>
+        <TextBlock HorizontalAlignment="Left" Height="49" Margin="400,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" TextAlignment="Center" FontSize="40" FontFamily="Lucida Handwriting" Foreground="#FF9CD626" Text="Tests"></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="49" Margin="394,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" TextAlignment="Center" FontSize="40" FontFamily="Lucida Handwriting" Foreground="#FF9CD626" Text="Lessons"></TextBlock>
+        <ComboBox HorizontalAlignment="Left" Margin="400,225,0,0" VerticalAlignment="Top" Width="340" Height="31" BorderBrush="#FF884DD8" ItemsSource="{Binding lessons}">
 
         </ComboBox>
-        <RadioButton Content="Test" HorizontalAlignment="Left" Margin="75,269,0,0" VerticalAlignment="Top" Height="25" Width="190" Foreground="#FF9CD626" FontFamily="Lucida Handwriting" FontSize="24"/>
-        <RadioButton Content="Lesson" HorizontalAlignment="Left" Margin="75,319,0,0" VerticalAlignment="Top" Height="25" Width="190" Foreground="#FF9CD626" FontFamily="Lucida Handwriting" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Height="62" Margin="40,179,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="245" Background="#FFB3C87C" Foreground="#FFF4CBFE" FontFamily="Lucida Handwriting" FontSize="24"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="111,364,0,0" VerticalAlignment="Top" Height="41" Width="81" Background="#FFD784A6" Foreground="#FF4D9129" FontFamily="Lucida Handwriting" FontSize="30"/>
+        <RadioButton Content="Test" HorizontalAlignment="Left" Margin="75,269,0,0" VerticalAlignment="Top" Height="25" Width="190" Foreground="#FF9CD626" FontFamily="Lucida Handwriting" FontSize="24" Command="{Binding TestPicked}"/>
+        <RadioButton Content="Lesson" HorizontalAlignment="Left" Margin="75,319,0,0" VerticalAlignment="Top" Height="25" Width="190" Foreground="#FF9CD626" FontFamily="Lucida Handwriting" FontSize="24" Command="{Binding LessonPicked}"/>
+        <TextBox HorizontalAlignment="Left" Height="62" Margin="40,179,0,0" TextWrapping="Wrap" Text="{Binding name}" VerticalAlignment="Top" Width="245" Background="#FFB3C87C" Foreground="#FFF4CBFE" FontFamily="Lucida Handwriting" FontSize="24"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="111,364,0,0" VerticalAlignment="Top" Height="41" Width="81" Background="#FFD784A6" Foreground="#FF4D9129" FontFamily="Lucida Handwriting" FontSize="30" Command="{Binding Add}"/>
 
 
 

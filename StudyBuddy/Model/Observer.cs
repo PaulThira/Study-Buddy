@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace StudyBuddy.Model
 {
-    public interface Observer<T>
+    public abstract class Observer<T>
     {
-        bool GetById(int objectId);
-         bool GetByName(string objectName);
-        void CreateNew();
-       void CreateObjectFromReader(SqlDataReader reader);
-        void Update(T obj);
+       public  abstract bool  GetById(int objectId);
+       public  abstract bool GetByName(string objectName);
+      public abstract void CreateNew();
+       public abstract void CreateObjectFromReader(SqlDataReader reader);
+
+
+        public abstract void Update(string propertyName, object newValue);
         
     }
 }

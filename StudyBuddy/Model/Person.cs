@@ -21,15 +21,16 @@ namespace StudyBuddy.Model
         public string password { get; set; }
         public int strikes { get; set; }
         public static int count;
-
+        public Observer<Person> observer { get; set; }
         public Person() {
             SetCount();
             name = "k";
             password = "m";
-
+            
             strikes = 0;
             count++;
             Id = count;
+            
         }
 
         public void SetCount()
@@ -97,7 +98,7 @@ namespace StudyBuddy.Model
         }
 
 
-        public bool GetById(int objectId)
+        public override bool GetById(int objectId)
         {
             string connectionString = "Data Source=THIRASWORLD;Initial Catalog=Study Buddy;Integrated Security=True";
 
@@ -140,7 +141,7 @@ namespace StudyBuddy.Model
             }
         }
 
-        public bool GetByName(string username)
+        public override bool GetByName(string username)
         {
             string connectionString = "Data Source=THIRASWORLD;Initial Catalog=Study Buddy;Integrated Security=True";
 
@@ -181,7 +182,7 @@ namespace StudyBuddy.Model
             }
         }
 
-        public void CreateNew()
+        public override void CreateNew()
         {
             string connectionString = "Data Source=THIRASWORLD;Initial Catalog=Study Buddy;Integrated Security=True";
 
@@ -215,7 +216,7 @@ namespace StudyBuddy.Model
                 }
             }
         }
-        public bool UserLogIn(string name, string password)
+        public  bool UserLogIn(string name, string password)
         {
             try
             {
@@ -237,6 +238,7 @@ namespace StudyBuddy.Model
                             if (reader.Read())
                             {
                                 MessageBox.Show("LogIn done");
+                                CreateObjectFromReader(reader);
                                 return true;
                             }
                             else
@@ -301,26 +303,35 @@ namespace StudyBuddy.Model
             }
         }
 
-        public void CreateObjectFromReader(SqlDataReader reader)
+        public override void CreateObjectFromReader(SqlDataReader reader)
         {
             Id = (int)reader["ID"];
             name= (string)reader["names"];
             password= (string)reader["passwords"];
-            strikes = (int)reader["strikes"];
+           
             
         }
 
-        public void Update(Person obj)
+        public override void Update(string propertyName, object newValue)
         {
-            if(Id==obj.Id)
+            if (propertyName == "ID")
             {
-                name = obj.name;
-                password=obj.password;
-                strikes=obj.strikes;
+                Id = (int)newValue;
+            }
+
+            if (propertyName == "name")
+            {
+                name = (string)newValue;
+            }
+            if (propertyName == "password")
+            {
+                password = (string)newValue;
+            }
+            if (propertyName == "strikes")
+            {
+                strikes = (int)newValue;
             }
         }
-
-      
     }
     }
 

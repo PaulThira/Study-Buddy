@@ -7,11 +7,14 @@
         mc:Ignorable="d"
         Title="Flashcard" Height="450" Width="800">
     <Grid Background="#FFDFD0EA">
-        <TextBlock HorizontalAlignment="Left" Height="55" Margin="185,49,0,0" TextWrapping="Wrap" Text="Question..............." VerticalAlignment="Top" Width="440" TextAlignment="Center" FontSize="40" FontFamily="Lucida Handwriting" Foreground="#FF6D00F6"/>
-        <TextBox HorizontalAlignment="Left" Height="50" Margin="152,124,0,0" TextWrapping="Wrap" Text="Things to ask........" VerticalAlignment="Top" Width="506" FontFamily="Lucida Calligraphy" FontSize="30" TextAlignment="Center" Background="#FFDFD0EA" Foreground="#FFDCB30D"/>
-        <ComboBox HorizontalAlignment="Left" Margin="185,217,0,0" VerticalAlignment="Top" Width="410" Height="32"/>
-        <Button Content="Submit" HorizontalAlignment="Left" Margin="332,314,0,0" VerticalAlignment="Top" Height="45" Width="116" Background="#FF6754A4" Foreground="#FFD1BB61" FontFamily="Lucida Handwriting"/>
-        
+        <TextBlock HorizontalAlignment="Left" Height="55" Margin="245,39,0,0" TextWrapping="Wrap" Text="Question..............." VerticalAlignment="Top" Width="365" TextAlignment="Center" FontSize="40" FontFamily="Lucida Handwriting" Foreground="#FF6D00F6"/>
+        <TextBox HorizontalAlignment="Left" Height="50" Margin="400,154,0,0" TextWrapping="Wrap" Text="Things to ask........" VerticalAlignment="Top" Width="383" FontFamily="Lucida Calligraphy" FontSize="30" TextAlignment="Center" Background="#FFDFD0EA" Foreground="#FFBE8D23"/>
+        <ComboBox HorizontalAlignment="Left" Margin="428,246,0,0" VerticalAlignment="Top" Width="334" Height="32"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="534,333,0,0" VerticalAlignment="Top" Height="44" Width="116" Background="#FF6754A4" Foreground="#FFD1BB61" FontFamily="Lucida Handwriting"/>
+        <TextBox HorizontalAlignment="Left" Height="45" Margin="35,172,0,0" TextWrapping="Wrap" Text="Answer" VerticalAlignment="Top" Width="266" FontFamily="Lucida Calligraphy" FontSize="30" TextAlignment="Center" Background="#FFDFD0EA" Foreground="#FFBE8D23"/>
+        <Button Content="Modify" HorizontalAlignment="Left" Margin="110,329,0,0" VerticalAlignment="Top" Height="45" Width="116" Background="#FF6754A4" Foreground="#FFD1BB61" FontFamily="Lucida Handwriting" />
+        <RadioButton Content="Is it right?" HorizontalAlignment="Left" Margin="77,255,0,0" VerticalAlignment="Top" Height="40" Width="182" Foreground="#FFBE8D23" FontFamily="Lucida Handwriting" FontSize="24"/>
+
 
 
     </Grid>

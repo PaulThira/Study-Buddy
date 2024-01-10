@@ -15,15 +15,15 @@ using System.Windows.Shapes;
 namespace StudyBuddy.View
 {
     /// <summary>
-    /// Interaction logic for Lesson.xaml
+    /// Interaction logic for ManageUsers.xaml
     /// </summary>
-    public partial class Lesson : Window
+    public partial class ManageUsers : Window
     {
-        public int IDunit {  get; set; }
-        public Lesson(int iDunit)
+        public ManageUsers()
         {
             InitializeComponent();
-            IDunit = iDunit;
         }
+
+        
     }
 }

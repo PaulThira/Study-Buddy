@@ -1,0 +1,33 @@
+﻿<Window x:Class="StudyBuddy.View.AdminSide"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudyBuddy.View"
+        mc:Ignorable="d"
+        Title="AdminSide" Height="450" Width="800">
+    <Grid Background="#FFD9BFF5">
+        <Grid HorizontalAlignment="Left" Height="240" VerticalAlignment="Center" Width="556" Margin="140,0,0,0">
+            <Button Content="Reports" HorizontalAlignment="Left" Margin="391,92,0,0" VerticalAlignment="Top" Height="80" Width="165" Foreground="#FF52450C" FontSize="36" FontFamily="Lucida Handwriting">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FFE6E765" Offset="1"/>
+                        <GradientStop Color="#FFA961D0" Offset="0.025"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="Admin side" VerticalAlignment="Top" Height="87" Width="330" TextAlignment="Center" FontSize="48" FontFamily="Lucida Handwriting" Foreground="#FF8A741B"/>
+        <Button Content="Users" HorizontalAlignment="Left" Margin="130,189,0,0" VerticalAlignment="Top" Height="80" Width="165" Foreground="#FF52450C" FontSize="36" FontFamily="Lucida Handwriting" Command="{Binding New}">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFE6E765" Offset="1"/>
+                    <GradientStop Color="#FFA961D0" Offset="0.025"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Window>

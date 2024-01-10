@@ -19,9 +19,11 @@ namespace StudyBuddy.View
     /// </summary>
     public partial class Test : Window
     {
-        public Test()
+        public int IDUnit {  get; set; }
+        public Test(int iDUnit)
         {
             InitializeComponent();
+            IDUnit = iDUnit;
         }
     }
 }

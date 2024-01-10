@@ -6,7 +6,16 @@
         xmlns:local="clr-namespace:StudyBuddy.View"
         mc:Ignorable="d"
         Title="Test" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="#FFC49AE3">
+        <Button Content="Add question" HorizontalAlignment="Left" Margin="37,103,0,0" VerticalAlignment="Top" Height="71" Width="168" Background="#FFD3D784" Foreground="#FF572991" FontFamily="Lucida Handwriting" FontSize="20"/>
+        <Grid HorizontalAlignment="Left" Height="306" Margin="245,103,0,0" VerticalAlignment="Top" Width="530" Background="#FFE7DCA3">
+            <TextBox HorizontalAlignment="Left" Height="47" Margin="85,39,0,0" TextWrapping="Wrap" Text="Question" VerticalAlignment="Top" Width="385" Background="#FFE7DCA3" Foreground="#FF541F91" FontFamily="Lucida Handwriting" FontSize="24" TextAlignment="Center"/>
+            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Center" Width="385" Height="36" Margin="85,0,0,0"/>
+            <Button Content="Pick" HorizontalAlignment="Left" Margin="210,196,0,0" VerticalAlignment="Top" Height="60" Width="136" Background="#FFB084D7" Foreground="#FFD9CC91" FontFamily="Lucida Handwriting" FontSize="20"/>
+        </Grid>
+        <Button Content=">>" HorizontalAlignment="Left" Margin="140,293,0,0" VerticalAlignment="Top" Height="56" Width="65" Background="#FFD3D784" Foreground="#FF572991" FontFamily="Lucida Handwriting" FontSize="20"/>
+        <Button Content="&lt;&lt;" HorizontalAlignment="Left" Margin="37,293,0,0" VerticalAlignment="Top" Height="56" Width="65" Background="#FFD3D784" Foreground="#FF572991" FontFamily="Lucida Handwriting" FontSize="20" RenderTransformOrigin="0.277,0.554"/>
+        <TextBox HorizontalAlignment="Left" Height="77" Margin="40,197,0,0" TextWrapping="Wrap" Text="Score" VerticalAlignment="Top" Width="165" Background="#FFE7DCA3" Foreground="#FF541F91" FontFamily="Lucida Handwriting" FontSize="24"/>
+        <TextBlock HorizontalAlignment="Left" Height="59" Margin="330,25,0,0" TextWrapping="Wrap" Text="Quiz" VerticalAlignment="Top" Width="320" FontFamily="Lucida Handwriting" FontSize="40" Foreground="#FFEBCF5F" TextAlignment="Center"/>
     </Grid>
 </Window>
